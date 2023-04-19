@@ -2,23 +2,25 @@ import React from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from "./pages/home/home";
+import MovieList from "./components/movieList/movieList";
+import Movie from "./pages/movieDetail/movie";
+
 
 
 function App() {
     return(
         <div className="App">
             <Router>
+            <Header/>
                 <Routes>
-                    <Route index element = {<h1>Hello World</h1>}></Route>
-                    <Route path="movie/:id" element={<h1>Movies detail page</h1>}></Route>
-                    <Route path="movies/:type" element={<h1>Moives list page</h1>}></Route>
+                    <Route index element = {<Home />}></Route>
+                    <Route path="movie/:id" element={<Movie/>}></Route>
+                    <Route path="movies/:type" element={<MovieList/>}></Route>
                     <Route path="/*" element={<h1>Error page</h1>}></Route>
                 </Routes>
             </Router>
-        <Header/>
-        <Footer/>
         </div>
         
     );
